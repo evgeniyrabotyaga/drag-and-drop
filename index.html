@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag&Drop</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/22bae50304.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header-1">Task Board</h1>
+    </header>
+    <div class="cards-container">
+      <div class="card backlog-card">
+        <div class="text-container text-container-backlog">
+          <h2 class="header-2">Backlog</h2>
+        </div>
+        <ul class="list custom-scroll">
+          <div
+            class="drag-list"
+            id="backlog"
+            ondragleave="dragLeave(0)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+            ondragenter="dragEnter(0)"
+          ></div>
+        </ul>
+        <div class="btn-container">
+          <button class="add-btn" onclick="showInputBox(0)">
+            <span class="plus">+</span>Add Item
+          </button>
+          <button
+            class="hidden save-btn save-btn-backlog add-btn"
+            onclick="hideInputBox(0)"
+          >
+            Save Item
+          </button>
+        </div>
+        <div class="add-container hidden">
+          <div class="add-item" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <div class="card progress-card">
+        <div class="text-container text-container-in-progress">
+          <h2 class="header-2">In Progress</h2>
+        </div>
+        <ul class="list custom-scroll">
+          <div
+            class="drag-list"
+            id="in-progress"
+            ondragleave="dragLeave(1)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+            ondragenter="dragEnter(1)"
+          ></div>
+        </ul>
+        <div class="btn-container">
+          <button class="add-btn" onclick="showInputBox(1)">
+            <span class="plus">+</span>Add Item
+          </button>
+          <button
+            class="hidden save-btn save-btn-in-progress add-btn"
+            onclick="hideInputBox(1)"
+          >
+            Save Item
+          </button>
+        </div>
+        <div class="add-container hidden">
+          <div class="add-item" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <div class="card complete-card">
+        <div class="text-container text-container-complete">
+          <h2 class="header-2">Complete</h2>
+        </div>
+        <ul class="list custom-scroll">
+          <div
+            class="drag-list"
+            id="complete"
+            ondragleave="dragLeave(2)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+            ondragenter="dragEnter(2)"
+          ></div>
+        </ul>
+        <div class="btn-container">
+          <button class="add-btn" onclick="showInputBox(2)">
+            <span class="plus">+</span>Add Item
+          </button>
+          <button
+            class="hidden save-btn save-btn-complete add-btn"
+            onclick="hideInputBox(2)"
+          >
+            Save Item
+          </button>
+        </div>
+        <div class="add-container hidden">
+          <div class="add-item" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <div class="card on-hold-card">
+        <div class="text-container text-container-on-hold">
+          <h2 class="header-2">On Hold</h2>
+        </div>
+        <ul class="list custom-scroll">
+          <div
+            class="drag-list"
+            id="on-hold"
+            ondragleave="dragLeave(3)"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+            ondragenter="dragEnter(3)"
+          ></div>
+        </ul>
+        <div class="btn-container">
+          <button class="add-btn" onclick="showInputBox(3)">
+            <span class="plus">+</span>Add Item
+          </button>
+          <button
+            class="add-btn hidden save-btn save-btn-on-hold"
+            onclick="hideInputBox(3)"
+          >
+            Save Item
+          </button>
+        </div>
+
+        <div class="add-container hidden">
+          <div class="add-item" contenteditable="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal hidden">
+      <span class="close close-event">✖</span>
+      <h3 class="modal-heading">
+        Are you sure you want to delete <br />
+        <span class="delete-item-text">123123</span> ?
+      </h3>
+      <div class="modal-body">
+        <i class="fa-regular fa-trash-can modal-icon"></i>
+        <h4 class="modal-text">
+          This item will be deleted immediately. You can't undo this action.
+        </h4>
+      </div>
+      <div class="modal-buttons">
+        <button class="delete">Delete</button>
+        <button class="cancel close-event">Cancel</button>
+      </div>
+    </div>
+    <div class="overlay hidden close-event"></div>
+  </body>
+</html>
+  </body>
+</html>
